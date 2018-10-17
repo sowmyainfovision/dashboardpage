@@ -9,62 +9,65 @@ import Tasks from './Tasks.js';
 import GeoFence from './GeoFence.js';
 import Groups from './Groups.js';
 import Piegraph from './Pie';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
 
 const styles = {
   card: {
-           height:'130px',
+           height:'120px',
            display:'flex',
            flexDirection:'column',
-           width:'310px',
            color: 'white',
            marginTop:10,
            marginLeft:25,
            paddingTop:'10px',
                                                     
   },
+  
 
   chartCard: {
-    height:'320px',
+    height:'333px',
     display:'flex',
     flexDirection:'column',
-    width:'730px',
     color: 'white',
     marginTop:5,
-    marginBottom:5,
     marginLeft:25,
-   textAlign:'center',
-   paddingTop:'2px',
+    paddingTop:'2px',
                                         
 },
 
 mapCard: {
-  height:'250px',
+  height:'310px',
   display:'flex',
   flexDirection:'column',
-  width:'auto',
   color: 'white',
-   
-  },
+  marginLeft:25,
+      },
+  
  };
+
 
 function SimpleCard(props) {
   const { classes } = props;
-  
-  return (
-      <div className="App">
-         
-         <div className="cardrow">
+   return (
     
-    <div className="carddivwrapper">
-    <Card className={classes.card} style={{backgroundColor:'#ad33ff'}}>
+      <div className="App">
+     
+       <Grid container spacing={8}>
+          
+                    
+           <Grid item xs={12} sm={12} md={6} lg={3}>
+ 
+  <Card className={classes.card} style={{backgroundColor:'#ad33ff'}}>
   <CardContent>
     <Users />
     </CardContent>
   </Card>
-  </div>
   
-  <div className="carddivwrapper"> 
+  </Grid>
+   <Grid item xs={12} sm={12} md={6} lg={3}>
+
 
 <Card className={classes.card} style={{backgroundColor:'#00bfff'}}>
   <CardContent>
@@ -72,51 +75,56 @@ function SimpleCard(props) {
     </CardContent>
   </Card>
 
-</div>
 
-<div className="carddivwrapper">
+</Grid>
+<Grid item xs={12} sm={12} md={6} lg={3}>
+
 
 <Card className={classes.card} style={{backgroundColor:'#ffcc00'}}>
  <CardContent>
     <Groups />
     </CardContent>
   </Card>
-  </div>
+  
+  </Grid>
+  
+  <Grid item xs={12} sm={12} md={6} lg={3}>
 
-
-<div className="carddivwrapper">
-
- <Card className={classes.card} style={{backgroundColor:'#ff4da6'}}>
+  <Card className={classes.card} style={{backgroundColor:'#ff4da6'}}>
   <CardContent>
     <GeoFence />
     </CardContent>
   </Card>
-  </div>
-</div>
-&nbsp;
-<div className="maprow">
+
+  </Grid>
+ 
+  </Grid>
+ 
+ <br></br>
+  <Grid container spacing={8}>
+<Grid item xs={12} sm={12} md={12} lg={12}>
 <Card className={classes.mapCard}>
   <CardContent>
     
     </CardContent>
   </Card>
-</div>
+  </Grid>
+  </Grid>
 
-<div className="chartrow">
-<div className="rowwrapper">
-    
-<Card className={classes.chartcard} style={{backgroundColor:'white'}}>
- <div className="chart">
- <b>Tasks Overview</b>
- <Piegraph />
- </div>
- </Card>
-    
-  </div>
-  &nbsp;
-  &nbsp;
- 
-  <div className="rowwrapper">
+   
+ <br></br>
+<Grid container spacing={8}>
+<Grid item xs={12} sm={12} md={12} lg={6}> 
+    <Card className={classes.chartCard}>
+       <CardContent>
+       <Typography style={{fontSize:'20px',textAlign:'left',marginLeft:'10px'}}><b>Tasks Overview</b></Typography>
+         <Piegraph />
+    </CardContent>
+  
+  </Card>
+  </Grid>       
+   
+<Grid item xs={12} sm={12} md={12} lg={6}> 
     <Card className={classes.chartCard}>
     
     <CardContent>
@@ -124,11 +132,14 @@ function SimpleCard(props) {
     </CardContent>
   
   </Card>
-  </div>
+  </Grid>   
+
+</Grid>
 
 </div>
 
-</div>
+
+ 
   );
 }
 

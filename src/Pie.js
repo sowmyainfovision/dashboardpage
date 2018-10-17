@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import { Pie } from '@vx/shape';
 import { Group } from '@vx/group';
 import { GradientPinkRed } from '@vx/gradient';
+import { scaleBand, scaleLinear, scaleOrdinal } from '@vx/scale';
 
 const Task =[
-    { task: 'New', frequency:30 },
+    { task: 'New', frequency:40 },
     { task: 'Started', frequency:50 },
     { task: 'Done', frequency:76  },
     { task: 'Overdue', frequency:314 },
@@ -28,8 +29,9 @@ function Label({ x, y, children }) {
   );
 }
 
-const width = 730;
-const height = 300;
+
+const width = 800;
+const height = 295;
 const margin = { top: 3, bottom: 20, left: 20, right: 20 }
 
 
@@ -41,17 +43,10 @@ const margin = { top: 3, bottom: 20, left: 20, right: 20 }
   const radius = (height) / 2;
   return (
     <div>
+     
     <svg width={width} height={height}>
       
-      <rect
-        x={0}
-        y={0}
-       
-        width={width}
-        height={height}
-        fill="white"
-      />
-      
+           
       <Group top={height/2-margin.top} left={width/2}>
       
      <Pie
@@ -77,7 +72,7 @@ const margin = { top: 3, bottom: 20, left: 20, right: 20 }
                                       <Pie
           data={Task}
           pieValue={d => d.frequency}
-          outerRadius={radius - 75}
+          outerRadius={radius - 85}
           fill="darkgray"
           fillOpacity={d => 1 / (d.index + 2) }
           centroid={(centroid, arc) => {

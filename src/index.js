@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import SimpleCard from './App';
 import * as serviceWorker from './serviceWorker';
-
+import GridExample from './GridExample';
 
 ReactDOM.render(<SimpleCard />, document.getElementById('root'));
 
